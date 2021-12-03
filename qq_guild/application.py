@@ -126,6 +126,8 @@ class GuildBot(GuildBotProtocol):
         self._handlers[event_name].append(handler)
         
     def event_handler(self, event_name, event_data):
+        if self._handlers.get(event_name) is None:
+            return
         for handler in self._handlers[event_name]:
             Event.info(f"处理事件: {event_name}")
             asyncio.create_task(handler(self, event_data))
