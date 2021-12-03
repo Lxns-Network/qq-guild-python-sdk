@@ -5,9 +5,9 @@ import json
 
 from typing import Callable
 
-from models.ws import Intents, Load, opcode
-from protocol import GuildBotProtocol
-from logger import Network, Protocol, Session, Event
+from .models.ws import Intents, Load, opcode
+from .protocol import GuildBotProtocol
+from .logger import Network, Protocol, Session, Event
 
 class GuildBot(GuildBotProtocol):
     def __init__(self, app_id, token, sandbox=True, intents: Intents = Intents()):

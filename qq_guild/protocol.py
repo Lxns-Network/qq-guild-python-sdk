@@ -2,8 +2,8 @@ import aiohttp
 import json
 from typing import Union
 
-from models import *
-from logger import Network
+from .models import *
+from .logger import Network
 
 class GuildBotProtocol:
     async def _post(self, endpoint, data_map=None):
