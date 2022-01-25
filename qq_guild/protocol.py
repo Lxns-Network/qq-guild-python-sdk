@@ -413,7 +413,7 @@ class GuildBotProtocol:
         })
         return Schedule.parse_obj(result)
 
-    async def create_schedule(self, channel_id: str, schedule_id: str, schedule: Schedule) -> Schedule:
+    async def edit_schedule(self, channel_id: str, schedule_id: str, schedule: Schedule) -> Schedule:
         """修改日程"""
         result = await self._patch(f"/channels/{channel_id}/schedules/{schedule_id}", {
             "schedule": schedule
