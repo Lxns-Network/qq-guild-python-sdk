@@ -96,7 +96,7 @@ class GuildBot(GuildBotProtocol):
                     Network.info("连接已断开，尝试重连")
                     await self._auth()
                 continue
-            load = Load(**message)
+            load = Load.parse_obj(message)
             op = load.op
             if op == opcode.Hello:
                 self.heartbeat_interval = load.d.heartbeat_interval / 1000

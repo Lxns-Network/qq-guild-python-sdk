@@ -2,7 +2,9 @@ from typing import Optional, Union
 
 from pydantic import BaseModel
 
-from ..api import AudioAction, Channel, Guild, MemberWithGuildID, Message
+from qq_guild.models.api.reaction import MessageReaction
+
+from ..api import AudioAction, Channel, Guild, MemberWithGuildID, Message, MessageAudited
 from .authorization import Authorization
 from .ready import Ready
 
@@ -12,6 +14,6 @@ class HeartBeat(BaseModel):
 class Load(BaseModel):
     op: int
     d: Optional[
-        Union[int, str, Ready, HeartBeat, Authorization, Guild, Message, Channel, MemberWithGuildID, AudioAction]]
+        Union[int, str, Ready, HeartBeat, Authorization, Guild, Message, Channel, MemberWithGuildID, AudioAction, MessageAudited, MessageReaction]]
     s: Optional[int]
     t: Optional[str]

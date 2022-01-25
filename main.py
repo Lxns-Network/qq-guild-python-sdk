@@ -8,7 +8,8 @@ bot = GuildBot(
     token=os.environ.get("BOT_TOKEN"),
     sandbox=False,
     intents=Intents(
-        atMessages=True
+        atMessages=True,
+        directMessage=True
     )
 )
 
@@ -19,5 +20,9 @@ async def on_ready(bot: GuildBot, data):
 @bot.receiver("AT_MESSAGE_CREATE")
 async def on_message(bot: GuildBot, data):
     await bot.send_message(data.channel_id, message_id=data.id, content=f"<@{data.author.id}> 你好~")
+
+@bot.receiver("DIRECT_MESSAGE_CREATE")
+async def on_message(bot: GuildBot, data):
+    await bot.send_direct_message(data.guild_id, message_id=data.id, content="你好~")
 
 bot.run()

@@ -5,7 +5,7 @@ from .user import User
 class Member(BaseModel):
     user: Optional[User]
     nick: Optional[str]
-    roles: List[str]
+    roles: Optional[List[str]]
     joined_at: str
 
 class MemberWithGuildID(BaseModel):

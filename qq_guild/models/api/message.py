@@ -33,7 +33,7 @@ class Message(BaseModel):
     channel_id: str
     guild_id: str
     content: Optional[str]
-    timestamp:  str
+    timestamp: str
     edited_timestamp: Optional[str]
     mention_everyone: Optional[bool]
     author: User
@@ -44,3 +44,11 @@ class Message(BaseModel):
 
     member: Optional[Member]
     ark: Optional[MessageArk]
+
+class MessageAudited(BaseModel):
+    audit_id: str
+    message_id: Optional[str]
+    guild_id: str
+    channel_id: str
+    audit_time: str
+    create_time: str
